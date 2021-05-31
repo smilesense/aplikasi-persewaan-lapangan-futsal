@@ -40,7 +40,7 @@ if(isset($_SESSION["id"])) {
   $r = mysqli_fetch_array($sql);
   $total_harga =$r['harga_lapangan'];
 ?>
-<div class="container bg-info">
+<div class="container bg-info" style="border-radius:5px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);">
   <h2>Pemesanan Lapangan</h2>
   <form action="" method="POST">
     <div class="form-group">
@@ -119,38 +119,43 @@ if(isset($_SESSION["id"])) {
           if (tanggalSekarang == tanggalUser){
             tanggalUser = new Date(user).getMonth();
             tanggalSekarang = new Date().getMonth();
-            if (tanggalSekarang <= tanggalUser){
-            tanggalUser = new Date(user).getDate();
-            tanggalSekarang = new Date().getDate();
-            if (tanggalSekarang < tanggalUser){
+            if (tanggalSekarang == tanggalUser){
+              tanggalUser = new Date(user).getDate();
+              tanggalSekarang = new Date().getDate();
+              if (tanggalSekarang < tanggalUser){
+                document.getElementById('jam').disabled = false;
+                jam = +document.getElementById("jam").value;
+                durasim = +document.getElementById("durasi").value;
+                cekJam2(jam,durasim);
+              }else if(tanggalSekarang == tanggalUser){
+                document.getElementById('jam').disabled = false;
+                jam = +document.getElementById("jam").value;
+                durasim = +document.getElementById("durasi").value;
+                if (jam != ""){
+                  cekJam(jam,durasim);
+                }
+              }else{
+                document.getElementById("mydate").value = "";
+                document.getElementById('jam').value = "";
+                document.getElementById('jam').disabled = true;
+                alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
+                return false;
+              }
+
+            }else if (tanggalSekarang < tanggalUser) {
+              tanggalUser = new Date(user).getDate();
+              tanggalSekarang = new Date().getDate();
               document.getElementById('jam').disabled = false;
               jam = +document.getElementById("jam").value;
               durasim = +document.getElementById("durasi").value;
               cekJam2(jam,durasim);
-            }else if(tanggalSekarang == tanggalUser){
-              document.getElementById('jam').disabled = false;
-              jam = +document.getElementById("jam").value;
-              durasim = +document.getElementById("durasi").value;
-              if (jam != ""){
-                cekJam(jam,durasim);
-              }
-            }else{
-              document.getElementById("mydate").value = "";
-              document.getElementById('jam').value = "";
-              document.getElementById('jam').disabled = true;
-              alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
-              return false;
-            }
+            }  
           }else{
             document.getElementById("mydate").value = "";
             document.getElementById('jam').value = "";
             document.getElementById('jam').disabled = true;
             alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
             return false;
-          }
-          }else if (tanggalSekarang < tanggalUser) {
-            tanggalUser = new Date(user).getDate();
-            tanggalSekarang = new Date().getDate();
           }
         }else{
           document.getElementById("mydate").value = "";

@@ -26,7 +26,7 @@ if(isset($_SESSION["id"])) {
 include "connect_db.php";
 ?>
 <div class="container d-flex align-items-center justify-content-center">
-  <div class="col-md-5 bg-info text-black text-center" style="height:350px;">
+  <div class="col-md-5 bg-info text-black text-center" style="height:350px; border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);">
     <h2 align="center">Login Form</h2>
     <form action="" method="POST" class="needs-validation" novalidate>
       <div class="form-group">

@@ -21,7 +21,7 @@ include "navbar.php";
 include "connect_db.php";
 ?>
 <div class="container d-flex align-items-center justify-content-center">
-  <div class="col-md-5 bg-info text-black text-center" style="border-radius:10px;">
+  <div class="col-md-5 bg-info text-black text-center" style="border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);">
     <h2 align="center">Register Form</h2>
     <form action="" method="POST" class="needs-validation" novalidate style="max-height:500px;">
       <div class="form-group">

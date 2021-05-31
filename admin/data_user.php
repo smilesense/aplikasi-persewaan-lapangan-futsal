@@ -92,13 +92,12 @@ if(isset($_SESSION["id_admin"])) {
             <div class="container">
             <h2 align="center">Data User</h2>
                 <div class="table-responsive">
-                    <table class="table table-info table-striped table-hover table-bordered">
+                    <table class="table table-info table-striped table-hover table-bordered" style="border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);">
                       <thead>
                         <tr>
                           <th>Nama</th>
                           <th>Email</th>
                           <th>Poin</th>
-                          <th>Password</th>
                           <th>Tindakan</th>
                         </tr>
                       </thead>
@@ -111,7 +110,6 @@ if(isset($_SESSION["id_admin"])) {
                           <td><?php echo $r['nama_user']?></td>
                           <td><?php echo $r['email_user']?></td>
                           <td><?php echo $r['poin']?></td>
-                          <td><?php echo $r['password_user']?></td>
                           <td><a href="data_user.php?delete_id_user=<?php echo $r['id_user']?>" class="btn btn-danger btn-xs"><i class="fa fa-trash"></i> Hapus </a></td>
                         </tr>
                       <?php

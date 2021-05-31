@@ -40,7 +40,7 @@ if(isset($_SESSION["id"])) {
   $r = mysqli_fetch_array($sql);
   $total_harga =$r['harga_lapangan'];
 ?>
-<div class="container bg-info">
+<div class="container bg-info" style="border-radius:5px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);">
   <h2>Pemesanan Lapangan</h2>
   <form action="" method="POST">
     <div class="form-group">
@@ -108,38 +108,42 @@ if(isset($_SESSION["id"])) {
           if (tanggalSekarang == tanggalUser){
             tanggalUser = new Date(user).getMonth();
             tanggalSekarang = new Date().getMonth();
-            if (tanggalSekarang <= tanggalUser){
-            tanggalUser = new Date(user).getDate();
-            tanggalSekarang = new Date().getDate();
-            if (tanggalSekarang < tanggalUser){
+            if (tanggalSekarang == tanggalUser){
+              tanggalUser = new Date(user).getDate();
+              tanggalSekarang = new Date().getDate();
+              if (tanggalSekarang < tanggalUser){
+                document.getElementById('jam').disabled = false;
+                jam = +document.getElementById("jam").value;
+                durasim = +document.getElementById("durasi").value;
+                cekJam2(jam,durasim);
+              }else if(tanggalSekarang == tanggalUser){
+                document.getElementById('jam').disabled = false;
+                jam = +document.getElementById("jam").value;
+                durasim = +document.getElementById("durasi").value;
+                if (jam != ""){
+                  cekJam(jam,durasim);
+                }
+              }else{
+                document.getElementById("mydate").value = "";
+                document.getElementById('jam').value = "";
+                document.getElementById('jam').disabled = true;
+                alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
+                return false;
+              }
+            }else if (tanggalSekarang < tanggalUser) {
+              tanggalUser = new Date(user).getDate();
+              tanggalSekarang = new Date().getDate();
               document.getElementById('jam').disabled = false;
               jam = +document.getElementById("jam").value;
               durasim = +document.getElementById("durasi").value;
               cekJam2(jam,durasim);
-            }else if(tanggalSekarang == tanggalUser){
-              document.getElementById('jam').disabled = false;
-              jam = +document.getElementById("jam").value;
-              durasim = +document.getElementById("durasi").value;
-              if (jam != ""){
-                cekJam(jam,durasim);
-              }
-            }else{
-              document.getElementById("mydate").value = "";
-              document.getElementById('jam').value = "";
-              document.getElementById('jam').disabled = true;
-              alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
-              return false;
-            }
+            } 
           }else{
             document.getElementById("mydate").value = "";
             document.getElementById('jam').value = "";
             document.getElementById('jam').disabled = true;
             alert("Tanggal yang dipilih tidak valid atau sudah kadaluarsa");
             return false;
-          }
-          }else if (tanggalSekarang < tanggalUser) {
-            tanggalUser = new Date(user).getDate();
-            tanggalSekarang = new Date().getDate();
           }
         }else{
           document.getElementById("mydate").value = "";
@@ -216,7 +220,7 @@ if(isset($_SESSION["id"])) {
       <label for="total1">Total Harga :</label>
       <input type="text" class="form-control" id="total_poin" name="total_poin" value="0" readonly>
     </div>
-    <button type="submit" class="btn btn-primary"><i class="fa fa-tags" aria-hidden="true"></i> Pesan</button>
+    <button type="submit" class="btn btn-primary"><i class="fa fa-tags fa-fw mr-1" aria-hidden="true"></i> Pesan</button>
   </form>
   <?php
   if($_SERVER["REQUEST_METHOD"] == "POST"){

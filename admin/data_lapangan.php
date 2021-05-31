@@ -82,7 +82,7 @@ if(isset($_SESSION["id_admin"])) {
             <div class="container">
             <h2 align="center">Data Lapangan</h2>
                 <div class="table-responsive">
-                    <table class="table table-info table-striped table-hover table-bordered">
+                    <table class="table table-info table-striped table-hover table-bordered" style="border-radius:5px; box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.3);">
                     <thead>
                       <tr>
                         <th>Foto Lapangan</th>

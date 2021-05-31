@@ -39,8 +39,8 @@
         </ul>
         <ul class="navbar-nav ml-auto">
             <li><h4 style="padding-top:10%; color:white;">&nbsp;&nbsp;Hi, <?php echo $_SESSION["name"]; ?> &nbsp;</h4></li>
-            <li style="padding-top:2%;"><a href="/user" class="btn btn-primary btn-lg active bg-info" role="button" aria-pressed="true" style="margin-bottom:10px;"><i class="fas fa-user"></i>         Akun</a></li>
-            <li style="padding-top:2%; margin-left:10px;"><a href="../logout.php" class="btn btn-primary btn-lg active bg-danger" role="button" aria-pressed="true" style="margin-bottom:10px;"><i class="fas fa-sign-out-alt"></i>           LOGOUT</a></li>
+            <li style="padding-top:2%;"><a href="/user" class="btn btn-primary btn-lg active bg-info" role="button" aria-pressed="true" style="margin-bottom:10px;"><i class="fas fa-user fa-fw mr-1"></i>Akun</a></li>
+            <li style="padding-top:2%; margin-left:10px;"><a href="../logout.php" class="btn btn-primary btn-lg active bg-danger" role="button" aria-pressed="true" style="margin-bottom:10px;"><i class="fas fa-sign-out-alt fa-fw mr-1"></i>LOGOUT</a></li>
         </ul>
     </div>
 </nav>

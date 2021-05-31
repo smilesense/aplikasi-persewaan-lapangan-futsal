@@ -46,20 +46,20 @@ if(isset($_SESSION["id"])) {
 <div class="container-fluid">
     <div class="row">
         <div class="col-6 col-md-4">
-            <div class="card bg-info" style="width:400px">
-                <img class="card-img-top" src="../assets/image/lapangan/avatar.jpg" alt="Card image" style="width:100%">
+            <div class="card bg-info" style="width:400px; border-radius:5px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);">
+                <img class="card-img-top" src="../assets/image/lapangan/avatar.jpg" alt="Card image" style="width:100%;">
                 <div class="card-body">
-                <h4 class="card-title"><i class="fa fa-user-circle" aria-hidden="true"></i> Nama :&nbsp;<?php echo $_SESSION["name"]; ?><h4>
-                <p class="card-text"><i class="fas fa-pen-square"></i> Role : (User)</p>
-                <p class="card-text"><i class="fas fa-envelope"></i> Email : <?php echo $_SESSION["email"]; ?></p>
-                <p class="card-text"><i class="fas fa-coins"></i> Poin : <?php echo $_SESSION["poin"]; ?></p>
+                <h4 class="card-title"><i class="fa fa-user-circle fa-fw mr-3" aria-hidden="true"></i> Nama :&nbsp;<?php echo $_SESSION["name"]; ?><h4>
+                <p class="card-text"><i class="fas fa-pen-square fa-fw mr-3"></i> Role : (User)</p>
+                <p class="card-text"><i class="fas fa-envelope fa-fw mr-3"></i> Email : <?php echo $_SESSION["email"]; ?></p>
+                <p class="card-text"><i class="fas fa-coins fa-fw mr-3"></i> Poin : <?php echo $_SESSION["poin"]; ?></p>
                 </div>
             </div>
         </div>
         <div class="col-12 col-md-8">
                     <h2 align="center">Riwayat Pesanan</h2>
                     <div class="table-responsive">
-                        <table class="table table-info table-striped table-hover table-bordered">
+                        <table class="table table-info table-striped table-hover table-bordered" style="border-radius:5px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);">
                         <thead>
                         <tr>
                             <th>ID Lapangan</th>
@@ -93,6 +93,7 @@ if(isset($_SESSION["id"])) {
                             <td><?php echo $r['jam_berakhir']?></td>
                             <td><?php echo $r['total_harga']?></td>
                             <td><?php echo $r['status_pesanan']?></td>
+                            
                             <td><?php echo $S['bayar']?></td>
                         </tr>
                         <?php

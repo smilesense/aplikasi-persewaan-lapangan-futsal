@@ -122,7 +122,7 @@ if(isset($_SESSION["id"]) && isset($_SESSION["tgl_main"])) {
   ?>
 </div>
 </body>
-<footer class="text-center text-white sticky-bottom" style="background-color: #007BFF;">
+<footer class="text-center text-white fixed-bottom" style="background-color: #007BFF;">
   <!-- Grid container -->
   <div class="container p-0"></div>
   <!-- Grid container -->

@@ -41,7 +41,7 @@ if(isset($_SESSION["id"]) && isset($_SESSION["tgl_main"])) {
   $sql = mysqli_query($koneksi,"SELECT * FROM pesanan WHERE id_user = $id AND tgl_main = '$tgl_main' AND jam_mulai = $jam_main ");
   if ( $r = mysqli_fetch_array( $sql ) ) {
 ?>
-<div class="container bg-info" style="max-width: 500px;">
+<div class="container bg-info" style="max-width: 500px; border-radius:5px; box-shadow: 7px 7px 7px rgba(0, 0, 0, 0.3);">
   <h2>Pembayaran</h2>
   <form action="" method="POST">
     <div class="form-group">
@@ -73,7 +73,7 @@ if(isset($_SESSION["id"]) && isset($_SESSION["tgl_main"])) {
       <label for="total">Bonus Poin :</label>
       <input type="text" class="form-control" id="poin" name="poin" value="<?php echo $r['total_poin']?>" readonly>
     </div>
-    <button type="submit" class="btn btn-primary"><i class="fas fa-money-check-alt"></i> Bayar</button>
+    <button type="submit" class="btn btn-primary"><i class="fas fa-money-check-alt fa-fw mr-1"></i> Bayar</button>
   </form>
   <?php
   if($_SERVER["REQUEST_METHOD"] == "POST"){
@@ -99,9 +99,17 @@ if(isset($_SESSION["id"]) && isset($_SESSION["tgl_main"])) {
     }
   }
   ?>
-</div>
-<?php
-    include "footer.php";
-?>
+</div>s
+<footer class="text-center text-white fixed-bottom" style="background-color: #007BFF;">
+  <!-- Grid container -->
+  <div class="container p-0"></div>
+  <!-- Grid container -->
+
+  <!-- Copyright -->
+  <div class="text-center p-1" >
+    © 2021 Copyright Futsal Guide
+  </div>
+  <!-- Copyright -->
+</footer>
 </body>
 </html>
